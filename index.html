@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!--Importar fuentes-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <!--Configurar fuente-->
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+    <!--Paleta de colores 
+        --color-50: #FFF1F2;
+        --color-100: #FFE4E6;
+        --color-200: #FFCCD3;
+        --color-300: #FFA1AD;
+        --color-400: #FF637E;
+        --color-500: #FF2056;
+        --color-600: #EC253F;
+        --color-700: #C71D36;
+        --color-800: #A50C36;
+        --color-900: #8B0836;
+        --color-950: #4D0218;
+    -->
+</head>
+<body class="bg-rose-50">
+    <!--Menú de navegación fijo para todas las páginas-->
+    <header class="w-full h-30 bg-white flex items-center justify-between px-8 shadow-sm relative z-50">
+        <img src="img/logolargo.png" alt="Logo de Filora" class="w-50">
+        <!--Menú para desktop-->
+        <nav class="hidden lg:flex gap-30 mr-20 text-neutral-700 text-lg font-medium">
+            <a href="index.html" class="hover:text-rose-700 transition-colors duration-300">Inicio</a>
+            <a href="productos.html" class="hover:text-rose-700 transition-colors duration-300">Productos</a>
+            <a href="nosotros.html" class="hover:text-rose-700 transition-colors duration-300">Nosotros</a>
+            <a href="perfil.html" class="hover:text-rose-700 transition-colors duration-300">Perfil</a>
+        </nav>
+        <!--Botoón hamburgesa-->
+        <button id="botonMovil" class="lg:hidden cursor-pointer" aria-label="Abrir menú">
+            <svg class="w-8 h-8 text-neutral-700 hover:text-rose-700 transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+        <!--Menú para móviles-->
+        <nav id="menuMovil" class="hidden md:hidden absolute top-25 left-0 w-full bg-white shadow-md">
+            <div class="flex flex-col items-center gap-6 py-6 text-neutral-700 text-lg font-medium">
+                <a href="index.html" class="hover:text-rose-700 transition-colors duration-300">Inicio</a>
+                <a href="productos.html" class="hover:text-rose-700 transition-colors duration-300">Productos</a>
+                <a href="nosotros.html" class="hover:text-rose-700 transition-colors duration-300">Nosotros</a>
+                <a href="perfil.html" class="hover:text-rose-700 transition-colors duration-300">Perfil</a>
+            </div>
+        </nav>
+    </header>
+    <!--Portada pricipal-->
+    <section class="relative h-screen bg-[url('img/seccion1.jpeg')] bg-cover bg-center z-0">
+        <div class="absolute inset-0 bakcdrop-grayscale " >
+            <div class="relative flex items-center justify-center h-full px-10">
+                <article class="bg-white/20 backdrop-blur-sm border borde-rose/100 rounded-3xl p-25 px-35 text-center text-white max-w-2xl">
+                    <h1 class="text-5xl md:text-6xl font-semibold mb-6">Filora</h1>
+                    <p class="lext-lg md:text-xl font-light mb-8">Crochet artesanal ..... </p>
+
+                </article>
+            </div>
+        </div>
+    </section>
+    <main class="min-h-screen flex flex-col lg:flex-row">
+        <section class="w-full lg:w-[72%] p-8 md:p-10">
+            <h2 class="text-center text-4xl font-semibold text-neutral-800 mb-6">Nuestros Productos</h2>
+            <p class="text-neutral-600 text-lg mb-10">Descubre nuestra colección de productos ..............</p>
+            <div class="grid grid-cols-1 ">
+
+            </div>
+        </section>
+
+    </main>
+
+
+
+
+
+    <script>
+        const botonMovil = document.getElementById('botonMovil');
+        const menuMovil = document.getElementById('menuMovil');
+
+        botonMovil.addEventListener('click', () => {
+            menuMovil.classList.toggle('hidden');
+        });
+
+    </script>
+
+</body>
+</html>
