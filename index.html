@@ -27,7 +27,7 @@
         --color-950: #4D0218;
     -->
 </head>
-<body class="bg-rose-50">
+<body class="bg-white">
     <!--Menú de navegación fijo para todas las páginas-->
     <header class="w-full h-30 bg-white flex items-center justify-between px-8 shadow-sm relative z-50">
         <img src="img/logolargo.png" alt="Logo de Filora" class="w-50">
@@ -45,7 +45,7 @@
             </svg>
         </button>
         <!--Menú para móviles-->
-        <nav id="menuMovil" class="hidden md:hidden absolute top-25 left-0 w-full bg-white shadow-md">
+        <nav id="menuMovil" class="hidden lg:hidden absolute top-25 left-0 w-full bg-white shadow-md">
             <div class="flex flex-col items-center gap-6 py-6 text-neutral-700 text-lg font-medium">
                 <a href="index.html" class="hover:text-rose-700 transition-colors duration-300">Inicio</a>
                 <a href="productos.html" class="hover:text-rose-700 transition-colors duration-300">Productos</a>
@@ -55,27 +55,79 @@
         </nav>
     </header>
     <!--Portada pricipal-->
-    <section class="relative h-screen bg-[url('img/seccion1.jpeg')] bg-cover bg-center z-0">
+    <section class="relative h-screen bg-[url('img/seccionuno.jpeg')] bg-cover bg-center z-0">
         <div class="absolute inset-0 bakcdrop-grayscale " >
             <div class="relative flex items-center justify-center h-full px-10">
-                <article class="bg-white/20 backdrop-blur-sm border borde-rose/100 rounded-3xl p-25 px-35 text-center text-white max-w-2xl">
-                    <h1 class="text-5xl md:text-6xl font-semibold mb-6">Filora</h1>
-                    <p class="lext-lg md:text-xl font-light mb-8">Crochet artesanal ..... </p>
-
+                <article class="bg-white/30 backdrop-blur-sm border border-rose-100 rounded-3xl p-15 px-25 text-center max-w-2xl">
+                    <h1 class="text-rose-700 text-5xl md:text-6xl font-semibold mb-2">FILORA</h1>
+                    <p class="text-neutral-600 text-lg md:text-xl font-light mb-8">CROCHET by britney</p>
+                    <p class="text-neutral-600 text-lg md:text-xl font-light mb-2">Tejidos que nacen del amor y la pasión de crear detalles únicos e imborrables</p>
+                    <p class="text-neutral-600 text-lg md:text-xl font-light mb-5">¡Conoce más sobre nosotros!</p>
                 </article>
             </div>
         </div>
     </section>
     <main class="min-h-screen flex flex-col lg:flex-row">
-        <section class="w-full lg:w-[72%] p-8 md:p-10">
-            <h2 class="text-center text-4xl font-semibold text-neutral-800 mb-6">Nuestros Productos</h2>
-            <p class="text-neutral-600 text-lg mb-10">Descubre nuestra colección de productos ..............</p>
-            <div class="grid grid-cols-1 ">
-
+        <section class="w-full lg:w-[70%] mt-20 p-8 md:p-10">
+            <h2 class="text-center text-4xl font-semibold text-neutral-700 mb-2">Nuestros Productos</h2>
+            <p class="text-center text-neutral-600 text-lg mb-5">Descubre nuestra colección de productos para cada categoría</p>
+            <hr class="border-rose-200 mb-20 w-1/4 mx-auto">
+            <!--Contenedor-->
+            <div class="grid grid-cols-1 gap-8">
+                <!--Cards-->
+                <article class="bg-rose-50 rounded-2xl p-5 w-full max-w-[500px] mx-auto shadow-sm">
+                    <img src="img/flores.jpeg" alt="Seccion de Flores" class="w-full h-[300px] object-cover rounded-xl mb-5">
+                    <h3 class="text-2xl text-center font-semibold text-neutral-700 mb-6">FLORES</h3>
+                    <button class="mt-5 bg-rose-400 hover:bg-rose-500 hover:scale-110 transition duration-300 text-white px-10 py-3 rounded-full font-medium block mx-auto cursor-pointer">
+                        Ver más
+                    </button>
+                </article>
+                <article class="bg-rose-50 rounded-2xl p-5 w-full max-w-[500px] mx-auto shadow-sm">
+                    <img src="img/llaveros.jpeg" alt="Seccion de Llaveros" class="w-full h-[300px] object-cover rounded-xl mb-5">
+                    <h3 class="text-2xl text-center font-semibold text-neutral-700 mb-6">LLAVEROS</h3>
+                    <button class="mt-5 bg-rose-400 hover:bg-rose-500 hover:scale-110 transition duration-300 text-white px-10 py-3 rounded-full font-medium block mx-auto cursor-pointer">
+                        Ver más
+                    </button>
+                </article>
+                <article class="bg-rose-50 rounded-2xl p-5 w-full max-w-[500px] mx-auto shadow-sm">
+                    <img src="img/amigurumi.jpeg" alt="Seccion de Amigurumis" class="w-full h-[300px] object-cover rounded-xl mb-5">
+                    <h3 class="text-2xl text-center font-semibold text-neutral-700 mb-6">AMIGURUMIS</h3>
+                    <button class="mt-5 bg-rose-400 hover:bg-rose-500 hover:scale-110 transition duration-300 text-white px-10 py-3 rounded-full font-medium block mx-auto cursor-pointer">
+                        Ver más
+                    </button>
+                </article>
             </div>
         </section>
+        <!--Aside de login-->
+        <aside class="border-t lg:border-t-0 lg:border-l border-rose-200 w-full lg:w-[30%]  p-8 md:p-10">
+            <div class="bg-white shadow-2xl rounded-3xl p-8 max-w-md mx-auto mt-10">
+                <h2 class="text-3xl text-center font-semibold text-neutral-800 mb-3">Inicia Sesión</h2>
+                <p class="text-center text-neutral-600 mb-8">¡Accede a tu cuenta para realizar tus compras!</p>
+                <form class="flex flex-col gap-5" action="login.php" method="POST">
+                    <input type="email" placeholder="Correo" class="bg-white border border-rose-200 rounded-xl px-4 py-3 outline-none focus:botder-rose-300 transition text-sm" name="correo">
+                    <input type="password" placeholder="Contraseña" class="bg-white border border-rose-200 rounded-xl px-4 py-3 outline-none focus:border-rose-300 transition text-sm" name="clave">
+                    <button class="bg-rose-400 hover:bg-rose-500 transition duration-300 text-white py-3 rounded-xl font-medium mt-2 cursor-pointer" type="submit">
+                        Iniciar Sesión
+                    </button>
+                </form>
+                <div class="mt-10 text-center">
+                    <p class="text-neutral-600 mb-4">¿No tienes una cuenta?</p>
+                    <a href="registro_usuario.html" class="inline-block border border-rose-300 text-rose-400 hover:bg-rose-100 transition duration-300 px-6 py-3 rounded-full font-medium cursor-pointer">
+                        Regístrate
+                    </a>
+                </div>
+
+
+
+            </div>
+           
+        </aside>
 
     </main>
+
+    <footer class="w-full h-30 bg-rose-800">
+        <p class="text-center text-white pt-11">© 2026 Filora crochet. Todos los derechos reservados.</p>
+    </footer>
 
 
 
