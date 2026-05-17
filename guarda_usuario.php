@@ -1,5 +1,5 @@
 <?php
-    //Conexión
+    //Conexión a la base de datos
     require_once ("conexion.php");
 
     //Validación de datos recibidos del formulario
@@ -10,6 +10,14 @@
     //filter_var limpia el correo de caracteres no válidos
     $correo = filter_var($_POST['correo'], FILTER_SANITIZE_EMAIL);
     $clave_plana = $_POST['clave']; //Contraseña recibida del formulario
+    $confirmar_clave = $_POST['confirmar_clave']; //Confirmación de contraseña recibida del formulario
+
+    //Validar que las dos contraseñas coincidan
+    if($clave_plana !== $confirmar_clave) {
+        //Redirigir al formulario de registro con un mensaje de error
+        header("Location: registro_usuario.php?error=claves_no_coinciden");
+        exit();
+    }
 
     //Hasheo de la contraseña
     //password_default para la mejor protección actual
@@ -23,7 +31,9 @@
 
     if ($verificar_correo -> num_rows > 0) {
         //Mostrar el mensaje de error por precaución
-        echo "<p style='color:red; text-align:center;'>" . htmlspecialchars("El correo ya está registrado. Por favor, utiliza otro.") . "</p>";
+        header("Location: registro_usuario.php?error=correo_existente");
+        exit();
+    //Si el correo no existe, proceder a registrar el nuevo usuario
     } else {
         //Insertar el nuevo usuario en la base de datos con la contraseña hasheada
         $stmt = $conexion -> prepare("INSERT INTO usuarios_filora (cedula, nombres, apellidos, correo, contraseña) VALUES (?, ?, ?, ?, ?)");
@@ -31,13 +41,17 @@
         $stmt -> bind_param("issss", $cedula, $nombres, $apellidos, $correo, $clave_hashed);
 
         if($stmt -> execute()) {
-            echo "<p style='color:green; text-align:center;'>" . htmlspecialchars("Usuario registrado exitosamente.") . "</p>";
-            echo "<p style='text-align:center;'><a href='listar_usuarios.php'>Ver lista de usuarios</a></p>";
+            //Redirigir al inicio de sesión con un mensaje de éxito
+            header("Location: index.php?registro=ok");
+            exit();
         } else {
-            echo "<p style='text-align:center; color:red;'>" . htmlspecialchars("Error al registrar el usuario. Por favor, intenta nuevamente.") . "</p>";
+            //Redirigir al formulario de registro
+            header("Location: registro_usuario.php?error=registro_fallido");
+            exit();
         }
-        $stmt -> close();
+        $stmt -> close(); 
     }
+    //Cerrar conexiones
     $verificar_correo -> close();
     $conexion -> close();
 ?>
